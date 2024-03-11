@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 // IdiomaFast React themes
 import theme from "assets/theme";
 import Presentation from "layouts/pages/presentation";
+import Aluno from "pages/LandingPages/Aluno";
 
 // IdiomaFast React routes
 import routes from "routes";
@@ -43,6 +44,7 @@ export default function App() {
       <Routes>
         {getRoutes(routes)}
         <Route path="/presentation" element={<Presentation />} />
+        <Route path="/aluno" element={<Aluno />} />
         <Route path="*" element={<Navigate to="/presentation" />} />
       </Routes>
     </ThemeProvider>

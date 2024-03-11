@@ -4,14 +4,16 @@ import world from "assets/images/bg-presentation.jpg";
 import aviso from "assets/images/aviso.png";
 import { auth } from "Firebase.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const SignInBasic = () => {
-  const [NewUser, setNewUser] = useState(true);
+  const [NewUser, setNewUser] = useState(false);
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [error, seterror] = useState(false);
   const [ErrorMsg, setErrorMsg] = useState(false);
+  const navigate = useNavigate();
   const submit = (e) => {
     e.preventDefault();
     seterror(false);
@@ -30,6 +32,7 @@ const SignInBasic = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((UserDetails) => {
           console.log(UserDetails);
+          navigate("/aluno");
         })
         .catch((error) => {
           seterror(true);
