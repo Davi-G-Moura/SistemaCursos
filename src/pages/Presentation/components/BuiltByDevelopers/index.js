@@ -21,7 +21,7 @@ import MKTypography from "components/MKTypography";
 
 function BuiltByDevelopers() {
   const bgImage =
-    "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg";
+    "https://raw.githubusercontent.com";
 
   return (
     <MKBox

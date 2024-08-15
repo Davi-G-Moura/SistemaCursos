@@ -1,0 +1,17 @@
+.main-container {
+    display: flex;
+  }
+  
+  .Aluno {
+    width: 25%; /* Ajuste conforme necessário */
+  }
+  
+  .gallery-container {
+    flex: 1; /* Ocupa o restante do espaço disponível */
+  }
+  
+  .ProductGallery {
+    position: sticky;
+    top: 0;
+  }
+  

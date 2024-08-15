@@ -14,6 +14,23 @@ const SignInBasic = () => {
   const [error, seterror] = useState(false);
   const [ErrorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
+
+  const signInUser = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((UserDetails) => {
+        if (UserDetails.user.email === "davi.gmoura.dev@gmail.com") {
+          navigate("/admin");
+        } else {
+          navigate("/main");
+        }
+      })
+      .catch((error) => {
+        seterror(true);
+        const errorMessage = error.message;
+        setErrorMsg(errorMessage);
+      });
+  };
+
   const submit = (e) => {
     e.preventDefault();
     seterror(false);
@@ -29,18 +46,10 @@ const SignInBasic = () => {
           setErrorMsg(errorMessage);
         });
     } else {
-      signInWithEmailAndPassword(auth, email, password)
-        .then((UserDetails) => {
-          console.log(UserDetails);
-          navigate("/aluno");
-        })
-        .catch((error) => {
-          seterror(true);
-          const errorMessage = error.message;
-          setErrorMsg(errorMessage);
-        });
+      signInUser(email, password);
     }
   };
+
   return (
     <>
       <div className="login-page">
